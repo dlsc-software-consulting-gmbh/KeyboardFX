@@ -1,0 +1,12 @@
+{
+  "samples": [
+    {
+      "category": "KeyboardFX",
+      "name": "On-Screen Keyboard",
+      "desc": "A control for displaying a keyboard",
+      "project": "KeyboardFX",
+      "preview": "/preview-keyboard.png",
+      "classname": "com.dlsc.keyboardfx.demo.KeyboardApp"
+    }
+  ]
+}

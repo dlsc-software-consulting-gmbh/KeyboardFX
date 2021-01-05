@@ -7,7 +7,7 @@
     <name>KeyboardFXParent</name>
     <groupId>com.dlsc.keyboardfx</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -18,6 +18,7 @@
     <description>Parent project of KeyboardFX
     </description>
     <url>https://github.com/dlemmermann/KeyboardFX</url>
+
     <licenses>
         <license>
             <name>Apache 2.0</name>
@@ -70,7 +71,7 @@
             <dependency>
                 <groupId>com.dlsc.keyboardfx</groupId>
                 <artifactId>keyboardfx</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

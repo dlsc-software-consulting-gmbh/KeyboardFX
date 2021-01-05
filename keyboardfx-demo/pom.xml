@@ -4,20 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.dlsc.keyboardfx</groupId>
     <name>KeyboardFXDemo</name>
-
-    <version>1.0.0</version>
+    <version>1.0.1</version>
+    <artifactId>keyboardfx-demo</artifactId>
+    <description>Demos for KeyboardFX</description>
 
     <parent>
         <groupId>com.dlsc.keyboardfx</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
-    <artifactId>keyboardfx-demo</artifactId>
-
-    <description>Demos for KeyboardFX</description>
 
     <url>https://github.com/dlemmermann/KeyboardFX</url>
     <licenses>
@@ -129,7 +127,7 @@
         <dependency>
             <groupId>com.dlsc.keyboardfx</groupId>
             <artifactId>keyboardfx</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
 
         <!-- Logging -->

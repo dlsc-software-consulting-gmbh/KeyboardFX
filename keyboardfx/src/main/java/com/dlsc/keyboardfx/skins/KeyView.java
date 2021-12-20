@@ -35,9 +35,16 @@ public class KeyView extends KeyViewBase<Key> {
         visibleProperty().bind(Bindings.isNotEmpty(vBox.getChildren()));
 
         updateLabels();
+        setOnTouchPressed(touchEvent -> this.setPressed(true));
 
-        setOnMousePressed(this::handlePressed);
-        setOnMouseReleased(this::handleReleased);
+        this.pressedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue)
+                this.handlePressed();
+            else
+                this.handleReleased();
+        });
+
+        this.pressedProperty().addListener((observableValue, aBoolean, t1) -> System.out.println("pressed " + t1));
     }
 
     public KeyView(KeyboardView keyboardView, Key key, String text) {
@@ -159,7 +166,7 @@ public class KeyView extends KeyViewBase<Key> {
 
     private ShowExtraKeysThread showExtraKeysThread;
 
-    private void handlePressed(MouseEvent evt) {
+    private void handlePressed() {
         if (text == null) {
             if (showExtraKeysThread != null) {
                 showExtraKeysThread.cancel();
@@ -170,7 +177,7 @@ public class KeyView extends KeyViewBase<Key> {
         }
     }
 
-    private void handleReleased(MouseEvent evt) {
+    private void handleReleased() {
         if (showExtraKeysThread != null) {
             showExtraKeysThread.cancel();
         }

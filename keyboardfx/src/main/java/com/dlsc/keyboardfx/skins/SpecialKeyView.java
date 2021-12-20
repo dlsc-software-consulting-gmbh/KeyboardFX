@@ -53,6 +53,7 @@ public class SpecialKeyView extends KeyViewBase<SpecialKey> {
         keyboardView.modeProperty().addListener(it -> updateSelection());
         updateSelection();
 
+        setOnTouchPressed(event -> this.setPressed(true));
         setOnMouseClicked(this::handleClick);
     }
 

@@ -33,23 +33,17 @@
 
     <repositories>
         <repository>
-            <id>jcenter</id>
-            <url>https://jcenter.bintray.com/</url>
-        </repository>
-
-        <repository>
             <id>jpro - sandec repository</id>
-            <url>http://sandec.bintray.com/repo</url>
+            <url>https://sandec.jfrog.io/artifactory/repo</url>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
             <id>jpro - sandec repository</id>
-            <url>http://sandec.bintray.com/repo</url>
+            <url>https://sandec.jfrog.io/artifactory/repo</url>
         </pluginRepository>
     </pluginRepositories>
-
 
     <build>
         <plugins>
@@ -135,19 +129,16 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.13.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.12.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.12.0</version>
         </dependency>
     </dependencies>
 

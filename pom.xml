@@ -10,6 +10,12 @@
     <version>1.0.2</version>
     <packaging>pom</packaging>
 
+    <parent>
+        <groupId>com.dlsc</groupId>
+        <artifactId>dlsc-maven-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
     <modules>
         <module>keyboardfx</module>
         <module>keyboardfx-demo</module>
@@ -39,11 +45,21 @@
     </scm>
 
     <properties>
+        <project.identifier>keyboardfx</project.identifier>
+        <project.github.repository>dlsc-software-consulting-gmbh/KeyboardFX</project.github.repository>
+        <local.repository.path>/tmp/repository</local.repository.path>
+        <java.version>14</java.version>
+        <javafx.version>17.0.1</javafx.version>
+        <ikonli.version>12.2.0</ikonli.version>
         <sonar.projectKey>dlsc-software-consulting-gmbh_KeyboardFX</sonar.projectKey>
         <sonar.organization>dlsc-software-consulting-gmbh</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javax.activation.version>1.2.0</javax.activation.version>
+        <lombok.version>1.18.6</lombok.version>
+        <ikonli.version>12.2.0</ikonli.version>
+        <jaxb.version>2.3.3</jaxb.version>
     </properties>
 
     <repositories>
@@ -68,11 +84,73 @@
 
     <dependencyManagement>
         <dependencies>
+
             <dependency>
-                <groupId>com.dlsc.keyboardfx</groupId>
-                <artifactId>keyboardfx</artifactId>
-                <version>1.0.2</version>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-controls</artifactId>
+                <version>${javafx.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.controlsfx</groupId>
+                <artifactId>controlsfx</artifactId>
+                <version>11.1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${jaxb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${jaxb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.kordamp.ikonli</groupId>
+                <artifactId>ikonli-core</artifactId>
+                <version>${ikonli.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.kordamp.ikonli</groupId>
+                <artifactId>ikonli-materialdesign-pack</artifactId>
+                <version>${ikonli.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.kordamp.ikonli</groupId>
+                <artifactId>ikonli-javafx</artifactId>
+                <version>${ikonli.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>2.17.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.17.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>2.14.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

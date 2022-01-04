@@ -29,14 +29,6 @@
         <url>https://github.com/dlsc-software-consulting-gmbh/KeyboardFX</url>
     </scm>
 
-    <properties>
-        <javafx.version>16</javafx.version>
-        <javax.activation.version>1.2.0</javax.activation.version>
-        <lombok.version>1.18.6</lombok.version>
-        <ikonli.version>12.2.0</ikonli.version>
-        <jaxb.version>2.3.3</jaxb.version>
-    </properties>
-
     <developers>
         <developer>
             <name>Dirk Lemmermann</name>
@@ -56,43 +48,36 @@
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
-            <version>11.1.0</version>
         </dependency>
 
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>${jaxb.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>${jaxb.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-core</artifactId>
-            <version>${ikonli.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-materialdesign-pack</artifactId>
-            <version>${ikonli.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-javafx</artifactId>
-            <version>${ikonli.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.6</version>
         </dependency>
 
     </dependencies>

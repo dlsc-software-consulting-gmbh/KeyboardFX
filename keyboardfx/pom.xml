@@ -7,13 +7,13 @@
     <parent>
         <groupId>com.dlsc.keyboardfx</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.dlsc.keyboardfx</groupId>
     <artifactId>keyboardfx</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>KeyboardFX</name>
@@ -30,10 +30,10 @@
     </scm>
 
     <properties>
-        <javafx.version>15</javafx.version>
+        <javafx.version>16</javafx.version>
         <javax.activation.version>1.2.0</javax.activation.version>
         <lombok.version>1.18.6</lombok.version>
-        <ikonli.version>11.5.0</ikonli.version>
+        <ikonli.version>12.2.0</ikonli.version>
         <jaxb.version>2.3.3</jaxb.version>
     </properties>
 
@@ -56,7 +56,7 @@
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
-            <version>11.0.2</version>
+            <version>11.1.0</version>
         </dependency>
 
         <dependency>

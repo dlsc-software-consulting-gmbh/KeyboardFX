@@ -7,7 +7,7 @@
     <name>KeyboardFXParent</name>
     <groupId>com.dlsc.keyboardfx</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -71,7 +71,7 @@
             <dependency>
                 <groupId>com.dlsc.keyboardfx</groupId>
                 <artifactId>keyboardfx</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -81,7 +81,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -97,6 +97,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                    <release>11</release>
                     <source>11</source>
                     <target>11</target>
                 </configuration>
@@ -105,7 +106,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.2.0</version>
                 <configuration>
                     <failOnError>false</failOnError>
                     <force>true</force>

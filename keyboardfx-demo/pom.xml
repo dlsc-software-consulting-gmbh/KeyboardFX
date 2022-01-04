@@ -6,14 +6,14 @@
 
     <groupId>com.dlsc.keyboardfx</groupId>
     <name>KeyboardFXDemo</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <artifactId>keyboardfx-demo</artifactId>
     <description>Demos for KeyboardFX</description>
 
     <parent>
         <groupId>com.dlsc.keyboardfx</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -127,7 +127,7 @@
         <dependency>
             <groupId>com.dlsc.keyboardfx</groupId>
             <artifactId>keyboardfx</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
 
         <!-- Logging -->

@@ -7,7 +7,7 @@
     <name>KeyboardFXParent</name>
     <groupId>com.dlsc.keyboardfx</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
 
     <parent>

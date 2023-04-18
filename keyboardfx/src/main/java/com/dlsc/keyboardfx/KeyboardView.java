@@ -123,8 +123,6 @@ public class KeyboardView extends Control {
         });
 
         getKeyboards().add(loadKeyboard(Locale.getDefault()));
-
-        widthProperty().addListener(it -> System.out.println("ph kv = " + prefHeight(-1)));
     }
 
     @Override

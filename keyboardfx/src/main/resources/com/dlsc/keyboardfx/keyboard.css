@@ -1,11 +1,11 @@
 @font-face {
-    font-family: "Roboto Bold";
-    src: url('com/dlsc/keyboardfx/Roboto-Bold.ttf');
+    font-family: "Roboto";
+    src: url('Roboto-Bold.ttf');
 }
 
 @font-face {
-    font-family: "Roboto Regular";
-    src: url('com/dlsc/keyboardfx/Roboto-Regular.ttf');
+    font-family: "Roboto";
+    src: url('Roboto-Regular.ttf');
 }
 
 .keyboard {
@@ -14,7 +14,7 @@
 }
 
 .keyboard .label {
-    -fx-font-family: "Roboto Regular" !important;
+    -fx-font-family: "Roboto";
 }
 
 .keyboard > .grid {
@@ -90,7 +90,8 @@
 .keyboard .key.special.multiply,
 .keyboard .key.special.divide {
     -fx-font-size: 1.5em;
-    -fx-font-family: "Roboto Bold";
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
 }
 
 .keyboard > * > .toolbar {
@@ -105,7 +106,7 @@
 .keyboard .extra-keys-box {
     -fx-spacing: 5;
     -fx-padding: 10;
-    -fx-background-color: gray, lightgrey;
+    -fx-background-color: grey, lightgrey;
     -fx-background-insets: 0, 1;
     -fx-background-radius: 4;
 }

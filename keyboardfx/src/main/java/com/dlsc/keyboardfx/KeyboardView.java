@@ -3,22 +3,6 @@ package com.dlsc.keyboardfx;
 import com.dlsc.keyboardfx.Keyboard.SpecialKey;
 import com.dlsc.keyboardfx.Keyboard.SpecialKey.Type;
 import com.dlsc.keyboardfx.skins.KeyboardViewSkin;
-
-import org.apache.commons.lang3.StringUtils;
-import org.kordamp.ikonli.javafx.FontIcon;
-import org.kordamp.ikonli.materialdesign.MaterialDesign;
-
-import java.io.InputStream;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.function.Consumer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
 import javafx.beans.Observable;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ListProperty;
@@ -39,6 +23,18 @@ import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.Skin;
 import javafx.scene.layout.Region;
 import javafx.util.Callback;
+import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.materialdesign.MaterialDesign;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.InputStream;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * A custom control that displays a keyboard for touch-based text editing.
@@ -144,15 +140,15 @@ public class KeyboardView extends Control {
         String language = locale.getLanguage().toLowerCase();
 
         Keyboard keyboard = null;
-        if (country != null && StringUtils.isNotBlank(country) && StringUtils.isNotBlank(language)) {
+        if (country != null && isNotBlank(country) && isNotBlank(language)) {
             keyboard = loadKeyboard("keyboard-full-" + country + "-" + language + ".xml");
         }
 
-        if (keyboard == null && StringUtils.isNotBlank(country)) {
+        if (keyboard == null && isNotBlank(country)) {
             keyboard = loadKeyboard("keyboard-full-" + country + ".xml");
         }
 
-        if (keyboard == null && StringUtils.isNotBlank(language)) {
+        if (keyboard == null && isNotBlank(language)) {
             keyboard = loadKeyboard("keyboard-full-" + language + ".xml");
         }
 
@@ -161,6 +157,10 @@ public class KeyboardView extends Control {
         }
 
         return keyboard;
+    }
+
+    private boolean isNotBlank(String str) {
+        return str != null && !str.trim().isEmpty();
     }
 
     private Keyboard loadKeyboard(String fileName) {

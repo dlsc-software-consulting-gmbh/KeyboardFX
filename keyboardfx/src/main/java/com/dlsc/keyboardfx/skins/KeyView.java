@@ -3,18 +3,16 @@ package com.dlsc.keyboardfx.skins;
 import com.dlsc.keyboardfx.Keyboard.Key;
 import com.dlsc.keyboardfx.KeyboardView;
 import com.dlsc.keyboardfx.KeyboardView.Mode;
-
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class KeyView extends KeyViewBase<Key> {
     private static final Logger LOG = Logger.getLogger(KeyView.class.getName());
@@ -36,8 +34,15 @@ public class KeyView extends KeyViewBase<Key> {
 
         updateLabels();
 
-        setOnMousePressed(this::handlePressed);
-        setOnMouseReleased(this::handleReleased);
+        setOnTouchPressed(touchEvent -> setPressed(true));
+
+        pressedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                handlePressed();
+            } else {
+                handleReleased();
+            }
+        });
     }
 
     public KeyView(KeyboardView keyboardView, Key key, String text) {
@@ -50,7 +55,7 @@ public class KeyView extends KeyViewBase<Key> {
 
     private void showPopOver() {
         List<String> list = null;
-        final Key key = getKey();
+        Key key = getKey();
         switch (getKeyboardView().getMode()) {
             case STANDARD:
                 if (key.getCharacters().size() > 1) {
@@ -109,7 +114,7 @@ public class KeyView extends KeyViewBase<Key> {
                     }
 
                     if (!key.getCharacters().isEmpty()) {
-                        final String text = key.getCharacters().get(0);
+                        String text = key.getCharacters().get(0);
                         vBox.getChildren().add(createLabel(text));
                     }
                     break;
@@ -149,7 +154,7 @@ public class KeyView extends KeyViewBase<Key> {
             try {
                 Thread.sleep(getKeyboardView().getExtraKeysPopOverDelay());
                 if (running) {
-                    Platform.runLater(() -> showPopOver());
+                    Platform.runLater(KeyView.this::showPopOver);
                 }
             } catch (InterruptedException e) {
                 LOG.log(Level.SEVERE, "interrupted exception", e);
@@ -159,7 +164,7 @@ public class KeyView extends KeyViewBase<Key> {
 
     private ShowExtraKeysThread showExtraKeysThread;
 
-    private void handlePressed(MouseEvent evt) {
+    private void handlePressed() {
         if (text == null) {
             if (showExtraKeysThread != null) {
                 showExtraKeysThread.cancel();
@@ -170,7 +175,7 @@ public class KeyView extends KeyViewBase<Key> {
         }
     }
 
-    private void handleReleased(MouseEvent evt) {
+    private void handleReleased() {
         if (showExtraKeysThread != null) {
             showExtraKeysThread.cancel();
         }
@@ -180,7 +185,7 @@ public class KeyView extends KeyViewBase<Key> {
             return;
         }
 
-        final boolean shiftDown = getKeyboardView().getMode().equals(Mode.SHIFT) || getKeyboardView().getMode().equals(Mode.CAPS);
+        boolean shiftDown = getKeyboardView().getMode().equals(Mode.SHIFT) || getKeyboardView().getMode().equals(Mode.CAPS);
 
         KeyEvent ke = new KeyEvent(
                 KeyEvent.KEY_TYPED,
@@ -192,7 +197,7 @@ public class KeyView extends KeyViewBase<Key> {
                 false,
                 false);
 
-        final Node focusOwner = getKeyboardView().getScene().getFocusOwner();
+        Node focusOwner = getKeyboardView().getScene().getFocusOwner();
         if (focusOwner != null) {
             focusOwner.fireEvent(ke);
         }

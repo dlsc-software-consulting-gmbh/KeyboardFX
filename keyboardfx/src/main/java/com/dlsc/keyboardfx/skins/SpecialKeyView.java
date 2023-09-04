@@ -4,11 +4,6 @@ import com.dlsc.keyboardfx.Keyboard;
 import com.dlsc.keyboardfx.Keyboard.SpecialKey;
 import com.dlsc.keyboardfx.KeyboardView;
 import com.dlsc.keyboardfx.KeyboardView.Mode;
-
-import org.controlsfx.control.PopOver;
-
-import java.util.function.Consumer;
-
 import javafx.beans.binding.Bindings;
 import javafx.css.PseudoClass;
 import javafx.scene.Node;
@@ -19,6 +14,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import org.controlsfx.control.PopOver;
+
+import java.util.function.Consumer;
 
 public class SpecialKeyView extends KeyViewBase<SpecialKey> {
 
@@ -30,7 +28,7 @@ public class SpecialKeyView extends KeyViewBase<SpecialKey> {
         getStyleClass().add("special");
         getStyleClass().add(key.getType().name().toLowerCase().replace("_", "-"));
 
-        final Node specialNode = keyboardView.getSpecialKeyFactory().call(key.getType());
+        Node specialNode = keyboardView.getSpecialKeyFactory().call(key.getType());
         if (specialNode != null) {
             getChildren().add(specialNode);
             StackPane.setAlignment(specialNode, key.getAlignment());
@@ -53,6 +51,7 @@ public class SpecialKeyView extends KeyViewBase<SpecialKey> {
         keyboardView.modeProperty().addListener(it -> updateSelection());
         updateSelection();
 
+        setOnTouchPressed(event -> setPressed(true));
         setOnMouseClicked(this::handleClick);
     }
 
@@ -85,7 +84,7 @@ public class SpecialKeyView extends KeyViewBase<SpecialKey> {
                         false,
                         false);
 
-                final Node focusOwner = getKeyboardView().getScene().getFocusOwner();
+                Node focusOwner = getKeyboardView().getScene().getFocusOwner();
                 if (focusOwner != null) {
                     focusOwner.fireEvent(ke);
                 }
@@ -159,7 +158,7 @@ public class SpecialKeyView extends KeyViewBase<SpecialKey> {
                 break;
         }
 
-        final Consumer<SpecialKey> specialKeyCallback = getKeyboardView().getSpecialKeyCallback();
+        Consumer<SpecialKey> specialKeyCallback = getKeyboardView().getSpecialKeyCallback();
         if (specialKeyCallback != null) {
             specialKeyCallback.accept(getKey());
         }
@@ -195,7 +194,7 @@ public class SpecialKeyView extends KeyViewBase<SpecialKey> {
             if (i == getKeyboardView().getKeyboards().size() - 1) {
                 button.getStyleClass().add("last");
             }
-        };
+        }
 
         popOver.setContentNode(vBox);
         popOver.show(this);
@@ -212,7 +211,7 @@ public class SpecialKeyView extends KeyViewBase<SpecialKey> {
                 false,
                 false);
 
-        final Node focusOwner = getScene().getFocusOwner();
+        Node focusOwner = getScene().getFocusOwner();
         if (focusOwner != null) {
             focusOwner.fireEvent(ke);
         }

@@ -55,6 +55,7 @@ public class KeyboardView extends Control {
 
         setSpecialKeyFactory(type -> {
             switch (type) {
+                default:
                 case SPACE:
                     return new Label("");
                 case SHIFT:
@@ -95,18 +96,16 @@ public class KeyboardView extends Control {
                     return new FontIcon(MaterialDesign.MDI_ARROW_LEFT);
                 case RIGHT:
                     return new FontIcon(MaterialDesign.MDI_ARROW_RIGHT);
-                default:
-                    return new Label("");
             }
         });
 
-        getStylesheets().add(KeyboardView.class.getResource("keyboard.css").toExternalForm());
+        getStylesheets().add(Objects.requireNonNull(KeyboardView.class.getResource("keyboard.css")).toExternalForm());
 
         darkModeProperty().addListener(it -> {
             if (isDarkMode()) {
-                getStylesheets().add(KeyboardView.class.getResource("keyboard-dark.css").toExternalForm());
+                getStylesheets().add(Objects.requireNonNull(KeyboardView.class.getResource("keyboard-dark.css")).toExternalForm());
             } else {
-                getStylesheets().remove(KeyboardView.class.getResource("keyboard-dark.css").toExternalForm());
+                getStylesheets().remove(Objects.requireNonNull(KeyboardView.class.getResource("keyboard-dark.css")).toExternalForm());
             }
         });
 
@@ -140,7 +139,7 @@ public class KeyboardView extends Control {
         String language = locale.getLanguage().toLowerCase();
 
         Keyboard keyboard = null;
-        if (country != null && isNotBlank(country) && isNotBlank(language)) {
+        if (isNotBlank(country) && isNotBlank(language)) {
             keyboard = loadKeyboard("keyboard-full-" + country + "-" + language + ".xml");
         }
 

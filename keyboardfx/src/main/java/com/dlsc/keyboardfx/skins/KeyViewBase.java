@@ -32,7 +32,7 @@ public abstract class KeyViewBase<T extends KeyBase> extends StackPane {
     }
 
     protected Label createLabel(String text) {
-        final Label label = new Label(text);
+        Label label = new Label(text);
         label.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         label.setAlignment(Pos.CENTER);
         label.setTextAlignment(TextAlignment.CENTER);

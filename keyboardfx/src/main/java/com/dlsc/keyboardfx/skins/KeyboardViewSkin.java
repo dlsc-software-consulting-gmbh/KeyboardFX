@@ -6,12 +6,6 @@ import com.dlsc.keyboardfx.Keyboard.KeyBase;
 import com.dlsc.keyboardfx.Keyboard.Row;
 import com.dlsc.keyboardfx.Keyboard.SpecialKey;
 import com.dlsc.keyboardfx.KeyboardView;
-
-import org.controlsfx.control.PopOver;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javafx.collections.MapChangeListener;
 import javafx.scene.Node;
 import javafx.scene.control.SkinBase;
@@ -21,6 +15,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
+import org.controlsfx.control.PopOver;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class KeyboardViewSkin extends SkinBase<KeyboardView> {
 
@@ -39,7 +37,7 @@ public class KeyboardViewSkin extends SkinBase<KeyboardView> {
 
         MapChangeListener l = change -> {
             if (change.wasAdded()) {
-                final Object key = change.getKey();
+                Object key = change.getKey();
                 if (key.equals("keyboard.extra.keys")) {
                     KeyPopoverInfo info = (KeyPopoverInfo) change.getValueAdded();
                     showExtraKeys(info);
@@ -61,7 +59,7 @@ public class KeyboardViewSkin extends SkinBase<KeyboardView> {
 
         List<String> popoverText = info.text;
 
-        final List<KeyView> keyViews = popoverText.stream()
+        List<KeyView> keyViews = popoverText.stream()
                 .map(text -> new KeyView(getSkinnable(), info.key, text))
                 .peek(keyView -> {
                     HBox.setHgrow(keyView, Priority.ALWAYS);
@@ -98,8 +96,8 @@ public class KeyboardViewSkin extends SkinBase<KeyboardView> {
     private void buildView() {
         gridPane.getChildren().clear();
 
-        final KeyboardView view = getSkinnable();
-        final Keyboard keyboard = view.getSelectedKeyboard();
+        KeyboardView view = getSkinnable();
+        Keyboard keyboard = view.getSelectedKeyboard();
 
         if (keyboard == null) {
             return;
@@ -123,7 +121,7 @@ public class KeyboardViewSkin extends SkinBase<KeyboardView> {
 
             maxColumns = Math.max(maxColumns, columns);
 
-            final RowConstraints rowConstraints = new RowConstraints();
+            RowConstraints rowConstraints = new RowConstraints();
             rowConstraints.setPercentHeight(100.0 / (double) keyboard.getRows().size());
             gridPane.getRowConstraints().add(rowConstraints);
         }
@@ -140,7 +138,7 @@ public class KeyboardViewSkin extends SkinBase<KeyboardView> {
         for (Row row : keyboard.getRows()) {
             c = 0;
 
-            final Node node = row.getNode();
+            Node node = row.getNode();
 
             if (node != null) {
 

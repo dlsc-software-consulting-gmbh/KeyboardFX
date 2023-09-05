@@ -1,3 +1,5 @@
+[![JFXCentral](https://img.shields.io/badge/Find_me_on-JFXCentral-blue?logo=googlechrome&logoColor=white)](https://www.jfx-central.com/libraries/keyboardfx)
+
 # KeyboardFX
 
 An on-screen keyboard, especially useful for touch applications (mobile, tablet).
